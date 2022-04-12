@@ -1,7 +1,7 @@
 import 'dart:convert';
 
-import 'package:desafio_grupo_hostaraguaia/data/dtos/base_stat/base_stat_dto.dart';
-import 'package:desafio_grupo_hostaraguaia/domain/entities/base_stat_entity.dart';
+import '../../../domain/entities/base_stat_entity.dart';
+import 'base_stat_dto.dart';
 
 class BaseStatDtoImp implements BaseStatDto {
   @override

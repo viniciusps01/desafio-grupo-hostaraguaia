@@ -1,5 +1,5 @@
-import 'package:desafio_grupo_hostaraguaia/data/dtos/base_stat/base_stat_dto.dart';
-import 'package:desafio_grupo_hostaraguaia/data/dtos/base_stat/base_stat_dto_imp.dart';
+import 'package:desafio_grupo_hostaraguaia/data/dtos/base_stat_dto/base_stat_dto.dart';
+import 'package:desafio_grupo_hostaraguaia/data/dtos/base_stat_dto/base_stat_dto_imp.dart';
 import 'package:desafio_grupo_hostaraguaia/domain/entities/base_stat_entity.dart';
 import 'package:flutter_test/flutter_test.dart';
 
