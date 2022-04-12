@@ -1,9 +1,10 @@
 import 'package:desafio_grupo_hostaraguaia/domain/entities/base_stat_entity.dart';
+import 'package:desafio_grupo_hostaraguaia/domain/entities/evolution_entity.dart';
 
 class PokemonEntity {
   final int id;
   final List<BaseStatEntity> baseStats;
-  final List<String> evolutions;
+  final List<EvolutionEntity> evolutions;
   final List<String> moves;
   final List<String> types;
   final String name;

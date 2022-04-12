@@ -6,7 +6,11 @@
     { "name": "Defense", "value": 420 },
     { "name": "Speed", "value": 750 }
   ],
-  "evolutions": ["Charmander", "Charmeleon", "Charizard"],
+  "evolutions": [
+    { "name": "Charmander", "types": ["fire"] },
+    { "name": "Charmeleon", "types": ["fire"] },
+    { "name": "Charizard", "types": ["fire"] }
+  ],
   "moves": ["Ataques do Tipo", "Fogo e Dragão", "Fogo Místico"],
   "types": ["Fogo"],
   "name": "Charmander",

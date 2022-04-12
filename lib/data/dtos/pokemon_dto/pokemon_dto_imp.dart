@@ -1,14 +1,17 @@
 import 'dart:convert';
 
 import 'package:desafio_grupo_hostaraguaia/data/dtos/base_stat_dto/base_stat_dto.dart';
+import 'package:desafio_grupo_hostaraguaia/data/dtos/evolution_dto/evolution_dto_imp.dart';
 import 'package:desafio_grupo_hostaraguaia/data/dtos/pokemon_dto/pokemon_dto.dart';
 import 'package:desafio_grupo_hostaraguaia/domain/entities/base_stat_entity.dart';
+import 'package:desafio_grupo_hostaraguaia/domain/entities/evolution_entity.dart';
 import 'package:desafio_grupo_hostaraguaia/domain/entities/pokemon_entity.dart';
 
 class PokemonDtoImp implements PokemonDto {
   final BaseStatDto _baseStatDto;
+  final EvolutionDtoImp _evolutionDtoImp;
 
-  PokemonDtoImp(this._baseStatDto);
+  PokemonDtoImp(this._baseStatDto, this._evolutionDtoImp);
 
   @override
   PokemonEntity fromJson(String source) => fromMap(json.decode(source));
@@ -21,7 +24,10 @@ class PokemonDtoImp implements PokemonDto {
           ?.map((x) => _baseStatDto.fromMap(x))
           .toList()
           .cast<BaseStatEntity>(),
-      evolutions: List<String>.from(map['evolutions']),
+      evolutions: map['evolutions']
+          .map((evolution) => _evolutionDtoImp.fromMap(evolution))
+          .toList()
+          .cast<EvolutionEntity>(),
       moves: List<String>.from(map['moves']),
       types: List<String>.from(map['types']),
       name: map['name'] ?? '',

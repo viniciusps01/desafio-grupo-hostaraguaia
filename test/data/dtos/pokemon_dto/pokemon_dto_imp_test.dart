@@ -1,4 +1,5 @@
 import 'package:desafio_grupo_hostaraguaia/data/dtos/base_stat_dto/base_stat_dto_imp.dart';
+import 'package:desafio_grupo_hostaraguaia/data/dtos/evolution_dto/evolution_dto_imp.dart';
 import 'package:desafio_grupo_hostaraguaia/data/dtos/pokemon_dto/pokemon_dto.dart';
 import 'package:desafio_grupo_hostaraguaia/data/dtos/pokemon_dto/pokemon_dto_imp.dart';
 import 'package:desafio_grupo_hostaraguaia/domain/entities/pokemon_entity.dart';
@@ -12,7 +13,7 @@ void main() {
 
   setUpAll(() {
     //TODO: refactory using DI
-    dto = PokemonDtoImp(BaseStatDtoImp());
+    dto = PokemonDtoImp(BaseStatDtoImp(), EvolutionDtoImp());
     final json = fixtureSync(FixtureOption.pokemonOne);
     pokemonOne = dto.fromJson(json);
   });
