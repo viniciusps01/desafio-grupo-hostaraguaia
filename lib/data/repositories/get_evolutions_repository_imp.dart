@@ -17,6 +17,7 @@ class GetEvolutionsRepositoryImp implements GetEvolutionsRepository {
     try {
       final json = await _dataSource(pokemonId);
       final map = jsonDecode(json);
+
       return map
           .map((evolution) => _evolutionDto.fromMap(evolution))
           .toList()
