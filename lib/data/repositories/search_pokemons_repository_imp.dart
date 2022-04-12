@@ -19,7 +19,7 @@ class SearchPokemonsRepositoryImp implements SearchPokemonsRepository {
       final map = jsonDecode(json);
 
       return map
-          .map((evolution) => _pokemonDto.fromMap(evolution))
+          .map((pokemon) => _pokemonDto.fromMap(pokemon))
           .toList()
           .cast<PokemonEntity>();
     } catch (e) {
