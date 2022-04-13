@@ -1,7 +1,9 @@
+import 'package:desafio_grupo_hostaraguaia/core/injection/inject.dart';
 import 'package:desafio_grupo_hostaraguaia/presentation/ui/pages/home_page/home_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
+  Inject.init();
   runApp(const MyApp());
 }
 
