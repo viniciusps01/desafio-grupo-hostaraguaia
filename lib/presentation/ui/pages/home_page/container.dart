@@ -2,16 +2,18 @@ part of 'home_page.dart';
 
 class _Container extends StatelessWidget {
   final Function(bool) onSearchEnableStateChanged;
-  final Function() onSearchPressed;
-  final Function() onGetFavoritesPressed;
+  final Function() onSearchButtonPressed;
+  final Function(String) onSearchIconPressed;
+  final Function() onGetFavoritesButtonPressed;
   final bool isSearchEnabled;
 
   const _Container({
     Key? key,
-    required this.onGetFavoritesPressed,
-    required this.onSearchPressed,
+    required this.onGetFavoritesButtonPressed,
+    required this.onSearchButtonPressed,
     required this.onSearchEnableStateChanged,
     required this.isSearchEnabled,
+    required this.onSearchIconPressed,
   }) : super(key: key);
 
   @override
@@ -33,7 +35,7 @@ class _Container extends StatelessWidget {
             SearchBar(
               backgroundColor: backgroundColor,
               searchIconActiveColor: secondaryColor,
-              onSearchIconPressed: (_) {},
+              onSearchIconPressed: onSearchIconPressed,
               onSearchEnableStateChanged: onSearchEnableStateChanged,
               isSearchEnabled: isSearchEnabled,
             ),
@@ -42,14 +44,14 @@ class _Container extends StatelessWidget {
             ),
             _Button(
               label: 'pesquisar',
-              onPressed: onSearchPressed,
+              onPressed: onSearchButtonPressed,
               backgroundColor: secondaryColor,
               textColor: Colors.white,
             ),
             const SizedBox(height: 20),
             _Button(
               label: 'ver favoritos',
-              onPressed: onGetFavoritesPressed,
+              onPressed: onGetFavoritesButtonPressed,
               backgroundColor: terciaryColor,
               textColor: secondaryColor,
             )
