@@ -1,6 +1,9 @@
+import 'package:desafio_grupo_hostaraguaia/presentation/controllers/home_page_controller.dart';
 import 'package:desafio_grupo_hostaraguaia/theming/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:get_it/get_it.dart';
 
 import '../../widgets/search_bar.dart';
 
@@ -16,6 +19,8 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final _homePageController = GetIt.I.get<HomePageController>();
+
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: const SystemUiOverlayStyle(
         statusBarColor: Colors.transparent,
@@ -41,12 +46,19 @@ class HomePage extends StatelessWidget {
                 height: 20,
               ),
               Expanded(
-                child: _Container(
-                  onSearchPressed: () {},
-                  onGetFavoritesPressed: () {},
-                  onSearchEnableStateChanged: (bool) {},
-                  isSearchEnabled: false,
-                ),
+                child: Observer(builder: (context) {
+                  return _Container(
+                    onSearchIconPressed:
+                        _homePageController.onSearchIconPressed,
+                    onSearchButtonPressed:
+                        _homePageController.onSearchButtonPressed,
+                    onGetFavoritesButtonPressed:
+                        _homePageController.onGetFavoritesButtonPressed,
+                    onSearchEnableStateChanged:
+                        _homePageController.onSearchEnableStateChanged,
+                    isSearchEnabled: _homePageController.isSearchEnabled,
+                  );
+                }),
               )
             ],
           ),
