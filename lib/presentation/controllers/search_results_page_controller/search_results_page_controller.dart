@@ -25,6 +25,7 @@ abstract class SearchResultsPageControllerBase with Store {
       _pokemons = await _useCase(searchTerm);
     } catch (e) {
       //TODO: handle properly
+      _pokemons = [];
       rethrow;
     } finally {
       _isLoading = false;
