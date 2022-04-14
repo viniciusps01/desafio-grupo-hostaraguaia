@@ -4,11 +4,13 @@ class PokemonCircleAvatar extends StatelessWidget {
   final String imageUrl;
   final Color borderColor;
   final Color? backgroundColor;
+  final double circleAvatarSize;
 
   const PokemonCircleAvatar({
     Key? key,
     required this.imageUrl,
     this.borderColor = Colors.white,
+    this.circleAvatarSize = 26,
     this.backgroundColor,
   }) : super(key: key);
 
@@ -24,7 +26,7 @@ class PokemonCircleAvatar extends StatelessWidget {
       ),
       child: CircleAvatar(
         backgroundColor: backgroundColor,
-        radius: 26,
+        radius: circleAvatarSize,
         backgroundImage: NetworkImage(imageUrl),
       ),
     );
