@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 import 'pokemon_circle_avatar.dart';
 
 class PokemonListTile extends StatelessWidget {
+  final bool shouldHaveShadow;
   final Color circleAvatarBorderColor;
   final Color circleAvatarBackgroundColor;
+  final double circleAvatarSize;
   final String imageUrl;
   final Color backgroundColor;
   final String title;
@@ -18,6 +20,8 @@ class PokemonListTile extends StatelessWidget {
     required this.title,
     required this.subtitle,
     required this.imageUrl,
+    this.shouldHaveShadow = true,
+    this.circleAvatarSize = 26,
     this.titleColor = Colors.white,
     this.subtitleColor = Colors.white,
     this.backgroundColor = Colors.white,
@@ -29,14 +33,19 @@ class PokemonListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(color: backgroundColor, boxShadow: [
-        BoxShadow(
-          color: Colors.grey.shade200,
-          offset: const Offset(1, 1),
-          blurRadius: 2,
-          spreadRadius: 3,
-        )
-      ]),
+      decoration: BoxDecoration(
+        color: backgroundColor,
+        boxShadow: !shouldHaveShadow
+            ? null
+            : [
+                BoxShadow(
+                  color: Colors.grey.shade200,
+                  offset: const Offset(1, 1),
+                  blurRadius: 2,
+                  spreadRadius: 3,
+                )
+              ],
+      ),
       child: ListTile(
         title: Text(
           title,
@@ -55,6 +64,7 @@ class PokemonListTile extends StatelessWidget {
           ),
         ),
         leading: PokemonCircleAvatar(
+          circleAvatarSize: circleAvatarSize,
           imageUrl: imageUrl,
           borderColor: circleAvatarBorderColor,
           backgroundColor: circleAvatarBackgroundColor,
