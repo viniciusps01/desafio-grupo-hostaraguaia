@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class SearchBar extends StatefulWidget {
-  final Function(String) onSearchIconPressed;
+  final Function(String) onSearchTermChanged;
+  final Function() onSearchIconPressed;
   final Function(bool) onSearchEnableStateChanged;
   final bool isSearchEnabled;
   final Color backgroundColor;
@@ -14,6 +15,7 @@ class SearchBar extends StatefulWidget {
     required this.searchIconActiveColor,
     required this.onSearchEnableStateChanged,
     required this.isSearchEnabled,
+    required this.onSearchTermChanged,
   }) : super(key: key);
 
   @override
@@ -51,6 +53,8 @@ class _SearchBarState extends State<SearchBar> {
                 if (_shouldUpdate(text)) {
                   widget.onSearchEnableStateChanged(_isSearchEnabled);
                 }
+
+                widget.onSearchTermChanged(text);
               },
               decoration: InputDecoration.collapsed(
                 hintText: 'Digite o nome do pokémon...',
@@ -88,6 +92,6 @@ class _SearchBarState extends State<SearchBar> {
   void onSearch() {
     if (!_isSearchEnabled) return;
 
-    widget.onSearchIconPressed(_textController.text);
+    widget.onSearchIconPressed();
   }
 }

@@ -1,14 +1,16 @@
 part of 'home_page.dart';
 
 class _Container extends StatelessWidget {
+  final Function(String) onSearchTermChanged;
   final Function(bool) onSearchEnableStateChanged;
   final Function() onSearchButtonPressed;
-  final Function(String) onSearchIconPressed;
+  final Function() onSearchIconPressed;
   final Function() onGetFavoritesButtonPressed;
   final bool isSearchEnabled;
 
   const _Container({
     Key? key,
+    required this.onSearchTermChanged,
     required this.onGetFavoritesButtonPressed,
     required this.onSearchButtonPressed,
     required this.onSearchEnableStateChanged,
@@ -38,6 +40,7 @@ class _Container extends StatelessWidget {
               onSearchIconPressed: onSearchIconPressed,
               onSearchEnableStateChanged: onSearchEnableStateChanged,
               isSearchEnabled: isSearchEnabled,
+              onSearchTermChanged: onSearchTermChanged,
             ),
             SizedBox(
               height: MediaQuery.of(context).size.height * .12,

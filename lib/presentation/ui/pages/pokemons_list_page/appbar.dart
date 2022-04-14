@@ -18,11 +18,14 @@ class _AppBar extends StatelessWidget {
       elevation: 3,
       shadowColor: Colors.grey.shade100,
       forceElevated: true,
-      systemOverlayStyle: const SystemUiOverlayStyle(
+      iconTheme: const IconThemeData(color: secondaryColor),
+      systemOverlayStyle: SystemUiOverlayStyle.dark.copyWith(
         statusBarColor: Colors.transparent,
       ),
       backgroundColor: Colors.white,
+      titleSpacing: 0,
       title: ListTile(
+        contentPadding: const EdgeInsets.only(left: 0),
         title: Text(
           title,
           style: const TextStyle(

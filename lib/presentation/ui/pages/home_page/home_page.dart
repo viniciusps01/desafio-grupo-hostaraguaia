@@ -1,10 +1,10 @@
-import 'package:desafio_grupo_hostaraguaia/presentation/controllers/home_page_controller.dart';
 import 'package:desafio_grupo_hostaraguaia/theming/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:get_it/get_it.dart';
 
+import '../../../controllers/home_page_controller/home_page_controller.dart';
 import '../../widgets/search_bar.dart';
 
 part 'short_description.dart';
@@ -48,12 +48,14 @@ class HomePage extends StatelessWidget {
               Expanded(
                 child: Observer(builder: (context) {
                   return _Container(
-                    onSearchIconPressed:
-                        _homePageController.onSearchIconPressed,
-                    onSearchButtonPressed:
-                        _homePageController.onSearchButtonPressed,
-                    onGetFavoritesButtonPressed:
-                        _homePageController.onGetFavoritesButtonPressed,
+                    onSearchTermChanged:
+                        _homePageController.onSearchTermChanged,
+                    onSearchIconPressed: () =>
+                        _homePageController.onSearchIconPressed(context),
+                    onSearchButtonPressed: () =>
+                        _homePageController.onSearchButtonPressed(context),
+                    onGetFavoritesButtonPressed: () => _homePageController
+                        .onGetFavoritesButtonPressed(context),
                     onSearchEnableStateChanged:
                         _homePageController.onSearchEnableStateChanged,
                     isSearchEnabled: _homePageController.isSearchEnabled,
