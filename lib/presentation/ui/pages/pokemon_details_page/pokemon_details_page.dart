@@ -1,4 +1,7 @@
+import 'dart:math';
+
 import 'package:desafio_grupo_hostaraguaia/core/utils/format.dart';
+import 'package:desafio_grupo_hostaraguaia/domain/entities/pokemon_entity.dart';
 import 'package:desafio_grupo_hostaraguaia/theming/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -17,6 +20,7 @@ part 'base_stats.dart';
 part 'skills.dart';
 
 class PokemonDetailsPage extends StatelessWidget {
+  final PokemonEntity pokemon;
   final bool isFavorite;
   final Function() onToggleFavorite;
 
@@ -24,12 +28,11 @@ class PokemonDetailsPage extends StatelessWidget {
     Key? key,
     required this.isFavorite,
     required this.onToggleFavorite,
+    required this.pokemon,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final pokemon = fakePokemon;
-
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: const SystemUiOverlayStyle(
         statusBarColor: Colors.transparent,

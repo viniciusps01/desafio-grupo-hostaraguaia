@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'pokemon_circle_avatar.dart';
 
 class PokemonListTile extends StatelessWidget {
+  final Function()? onTap;
   final bool shouldHaveShadow;
   final Color circleAvatarBorderColor;
   final Color circleAvatarBackgroundColor;
@@ -28,6 +29,7 @@ class PokemonListTile extends StatelessWidget {
     this.circleAvatarBorderColor = Colors.white,
     this.circleAvatarBackgroundColor = Colors.white,
     this.trailing,
+    this.onTap,
   }) : super(key: key);
 
   @override
@@ -47,6 +49,7 @@ class PokemonListTile extends StatelessWidget {
               ],
       ),
       child: ListTile(
+        onTap: onTap,
         title: Text(
           title,
           style: TextStyle(

@@ -9,12 +9,14 @@ import '../../widgets/pokemon_list_tile.dart';
 part 'appbar.dart';
 
 class PokemonsListPage extends StatelessWidget {
+  final Function(PokemonEntity) onTap;
   final List<PokemonEntity> pokemons;
   final String title;
   final String? subtitle;
 
   const PokemonsListPage({
     Key? key,
+    required this.onTap,
     required this.pokemons,
     required this.title,
     this.subtitle,
@@ -33,6 +35,7 @@ class PokemonsListPage extends StatelessWidget {
                   final pokemon = pokemons[index];
 
                   return PokemonListTile(
+                    onTap: () => onTap(pokemon),
                     imageUrl: pokemon.imageUrl,
                     title: pokemon.name,
                     subtitle: stringListToFormatedString(pokemon.types),
