@@ -11,7 +11,7 @@ class EvolutionPokeAPIDtoImp implements EvolutionDto {
   EvolutionEntity fromMap(Map<String, dynamic> map) {
     return EvolutionEntity(
       name: map['species']['name'] ?? '',
-      types: <String>[], //TODO: implement
+      types: ['Unimplemented'], //TODO: implement
     );
   }
 

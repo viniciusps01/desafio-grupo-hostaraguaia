@@ -10,12 +10,14 @@ class _Weight extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final _weight = weight / 10;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const _SubtitleText(text: 'Peso'),
         _TitleText(
-          text: weight.toStringAsFixed(1).replaceFirst('.', ',') + ' kg',
+          text: _weight.toStringAsFixed(1).replaceFirst('.', ',') + ' kg',
         )
       ],
     );
