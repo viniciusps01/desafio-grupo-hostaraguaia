@@ -1,3 +1,4 @@
+import 'package:desafio_grupo_hostaraguaia/presentation/ui/pages/favorites_page/favorites_page.dart';
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 
@@ -27,6 +28,10 @@ abstract class HomePageControllerBase with Store {
   }
 
   void onGetFavoritesButtonPressed(BuildContext context) {
-    //TODO: implement
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (_) => const FavoritesPage(),
+      ),
+    );
   }
 }
