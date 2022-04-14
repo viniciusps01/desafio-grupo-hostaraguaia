@@ -45,6 +45,8 @@ class SearchResultsPage extends StatelessWidget {
           pokemons: _searchResultsPageController.pokemons,
           title: 'Resultado da Pesquisa',
           subtitle: searchTerm,
+          onTap: (pokemon) =>
+              _searchResultsPageController.onPokemonSelected(context, pokemon),
         );
       },
     );

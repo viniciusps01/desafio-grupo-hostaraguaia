@@ -12,6 +12,9 @@ class _BaseStats extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final quantity = min(4, stats.length);
+    final _stats = stats.getRange(0, quantity);
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -20,7 +23,7 @@ class _BaseStats extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            for (var stat in stats)
+            for (var stat in _stats)
               Column(
                 children: [
                   _SubtitleText(

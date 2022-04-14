@@ -1,5 +1,7 @@
 import 'package:desafio_grupo_hostaraguaia/domain/entities/pokemon_entity.dart';
 import 'package:desafio_grupo_hostaraguaia/domain/usecases/search_pokemons_usecase/search_pokemons_usecase.dart';
+import 'package:desafio_grupo_hostaraguaia/presentation/ui/pages/pokemon_details_page/pokemon_details_page.dart';
+import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:mobx/mobx.dart';
 
@@ -30,5 +32,18 @@ abstract class SearchResultsPageControllerBase with Store {
     } finally {
       _isLoading = false;
     }
+  }
+
+  @action
+  void onPokemonSelected(BuildContext context, PokemonEntity pokemon) {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (_) => PokemonDetailsPage(
+          pokemon: pokemon,
+          isFavorite: false,
+          onToggleFavorite: () {},
+        ),
+      ),
+    );
   }
 }
