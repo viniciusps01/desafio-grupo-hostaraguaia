@@ -48,11 +48,11 @@ mixin _$HomePageController on HomePageControllerBase, Store {
       ActionController(name: 'HomePageControllerBase');
 
   @override
-  void onSearchTermChanged(String newSearchTerm) {
+  void onSearchTermChanged(String searchTerm) {
     final _$actionInfo = _$HomePageControllerBaseActionController.startAction(
         name: 'HomePageControllerBase.onSearchTermChanged');
     try {
-      return super.onSearchTermChanged(newSearchTerm);
+      return super.onSearchTermChanged(searchTerm);
     } finally {
       _$HomePageControllerBaseActionController.endAction(_$actionInfo);
     }

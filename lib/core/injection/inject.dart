@@ -6,6 +6,7 @@ import 'package:desafio_grupo_hostaraguaia/data/repositories/search_pokemons_pok
 import 'package:desafio_grupo_hostaraguaia/data/repositories/search_pokemons_repository_imp.dart';
 import 'package:desafio_grupo_hostaraguaia/domain/usecases/search_pokemons_usecase/search_pokemons_usecase_imp.dart';
 import 'package:desafio_grupo_hostaraguaia/external/datasources/search_pokemons_datasource/search_pokemons_poke_api_datasource_imp.dart';
+import 'package:desafio_grupo_hostaraguaia/presentation/controllers/search_results_page_controller/search_results_page_controller.dart';
 import 'package:get_it/get_it.dart';
 
 import '../../data/dtos/base_stat_dto/base_stat_dto.dart';
@@ -81,5 +82,7 @@ class Inject {
   static initControllers() {
     _getIt
         .registerLazySingleton<HomePageController>(() => HomePageController());
+    _getIt.registerLazySingleton<SearchResultsPageController>(
+        () => SearchResultsPageController());
   }
 }
