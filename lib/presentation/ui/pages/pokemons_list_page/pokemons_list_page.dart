@@ -1,12 +1,12 @@
+import 'package:desafio_grupo_hostaraguaia/core/utils/format.dart';
 import 'package:desafio_grupo_hostaraguaia/theming/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../../../../domain/entities/pokemon_entity.dart';
+import '../../widgets/pokemon_list_tile.dart';
 
 part 'appbar.dart';
-part 'list_tile.dart';
-part 'circle_avatar.dart';
 
 class PokemonsListPage extends StatelessWidget {
   final List<PokemonEntity> pokemons;
@@ -32,7 +32,18 @@ class PokemonsListPage extends StatelessWidget {
                 (context, index) {
                   final pokemon = pokemons[index];
 
-                  return _ListTile(pokemon: pokemon);
+                  return PokemonListTile(
+                    imageUrl: pokemon.imageUrl,
+                    title: pokemon.name,
+                    subtitle: stringListToFormatedString(pokemon.types),
+                    titleColor: primaryColor,
+                    subtitleColor: Colors.grey.shade600,
+                    circleAvatarBorderColor: primaryColor,
+                    trailing: const Icon(
+                      Icons.arrow_forward_ios_outlined,
+                      color: primaryColor,
+                    ),
+                  );
                 },
                 childCount: pokemons.length,
               ),
