@@ -7,16 +7,16 @@ class HomePageController = HomePageControllerBase with _$HomePageController;
 
 abstract class HomePageControllerBase with Store {
   @readonly
-  bool isSearchEnabled = false;
+  bool _isSearchEnabled = false;
 
   @readonly
-  String searchTerm = '';
+  String _searchTerm = '';
 
   @action
-  void onSearchTermChanged(String newSearchTerm) => searchTerm = newSearchTerm;
+  void onSearchTermChanged(String searchTerm) => _searchTerm = searchTerm;
 
   @action
-  void onSearchEnableStateChanged(bool status) => isSearchEnabled = status;
+  void onSearchEnableStateChanged(bool status) => _isSearchEnabled = status;
 
   void onSearchIconPressed(BuildContext context) {
     //TODO: implement
