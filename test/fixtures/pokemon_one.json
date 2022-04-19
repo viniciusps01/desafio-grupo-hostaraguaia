@@ -1,0 +1,19 @@
+{
+  "id": 4,
+  "baseStats": [
+    { "name": "HP", "value": 700 },
+    { "name": "Attack", "value": 800 },
+    { "name": "Defense", "value": 420 },
+    { "name": "Speed", "value": 750 }
+  ],
+  "evolutions": [
+    { "name": "Charmander", "types": ["fire"] },
+    { "name": "Charmeleon", "types": ["fire"] },
+    { "name": "Charizard", "types": ["fire"] }
+  ],
+  "moves": ["Ataques do Tipo", "Fogo e Dragão", "Fogo Místico"],
+  "types": ["Fogo"],
+  "name": "Charmander",
+  "imageUrl": "http://www.url.com",
+  "weight": 8.5
+}
